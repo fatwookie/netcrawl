@@ -36,10 +36,9 @@ def det_snmp_up(ip_range, community):
         )
         
         if errorIndication:
-            print("No response from: {}".format(str(target)))
+            print('No response from: {}'.format(str(target)))
         elif errorStatus:
-            print('%s at %s' % (errorStatus.prettyPrint(),
-                errorIndex and varBinds[int(errorIndex) - 1][0] or '?'))
+            print('{} at {}'.format(str(errorStatus),str(errorIndex) and varBinds[int(errorIndex) - 1][0] or '?'))
         else:
             for varBind in varBinds:
                 print(' = '.join([x.prettyPrint() for x in varBind]))
